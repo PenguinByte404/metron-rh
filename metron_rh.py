@@ -44,7 +44,7 @@ class MetronRH:
         print(r" | |\/| |/ _ \ __| '__/ _ \| '_ \  | |_) | |_| |")
         print(r" | |  | |  __/ |_| | | (_) | | | | |  _ <|  _  |")
         print(r" |_|  |_|\___|\__|_|  \___/|_| |_| |_| \_\_| |_|")
-        print(" Relative Humidity Metrology Suite v1.0.0")
+        print(" Relative Humidity Metrology Suite v1.1.0")
         print("------------------------------------------------")
 
     def run(self):
