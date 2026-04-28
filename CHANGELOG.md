@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 *This section holds changes that are currently in work but haven't officially been published.*
 
+## [1.1.0] - 2026-04-28
+### Added
+- Integrated the complete `\tests\` directory to enable the Test-Driven Metrology (TDM) framework.
+- Added `test_math_engine.py` to provide cryptographic validation of Sonntag polynomial evaluations and Newton-Raphson root-finding convergence.
+- Added `test_thermodynamics.py` to verify physical constants against industry reference points, including the Triple Point of Water and Standard Boiling Point.
+
+### Fixed
+- Resolved repository distribution oversight by ensuring all TDM validation scripts are present for ISO/IEC 17025 compliance audits.
+
 ## [1.0.0] - 2026-04-28
 ### Added
 - Initial stable release for lab floor deployment.
