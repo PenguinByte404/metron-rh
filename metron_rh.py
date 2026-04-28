@@ -68,11 +68,9 @@ class MetronRH:
                 print("\n[i] Routing to Chilled Mirror Module...")
                 path_chilled_mirror.execute(self.db, self.exe_dir)
             elif selection == '2':
-                #print("\n[i] Psychrometer module coming soon.")
                 print("\n[i] Routing to Psychrometer Module...")
                 path_psychrometer.execute(self.db, self.exe_dir)
             elif selection == '3':
-                #print("\n[i] Trace Moisture module coming soon.")
                 print("\n[i] Routing to Trace Moisture Module...")
                 path_ppmv.execute(self.db, self.exe_dir)
             else:
