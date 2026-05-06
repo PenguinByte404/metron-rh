@@ -70,3 +70,32 @@ class MetronMath:
             f.write(proof_text)
 
         return filepath
+    
+    @staticmethod
+    def calc_enhancement_factor(t_celsius, p_hpa, e_s_hpa, greenspan_coeffs):
+        """
+        Evaluates the Greenspan (1981) enhancement factor (f).
+        Formula: f = exp[ α(1 - e_s/P) + β(P/e_s - 1) ]
+        """
+        # 1. Calculate Alpha (α) polynomial
+        A = greenspan_coeffs["A_coeffs"]
+        alpha = A[0] + (A[1] * t_celsius) + (A[2] * t_celsius**2) + (A[3] * t_celsius**3)
+
+        # 2. Calculate Beta (β) exponential polynomial
+        B = greenspan_coeffs["B_coeffs"]
+        ln_beta = B[0] + (B[1] * t_celsius) + (B[2] * t_celsius**2) + (B[3] * t_celsius**3)
+        beta = math.exp(ln_beta)
+
+        # 3. Calculate Enhancement Factor (f)
+        # Note: Pressure units (hPa) cancel out in the ratios (e_s/P) and (P/e_s).
+        f = math.exp(alpha * (1 - (e_s_hpa / p_hpa)) + beta * ((p_hpa / e_s_hpa) - 1))
+        return f
+
+    @staticmethod
+    def generate_two_pressure_proof(ts, ps, tt, pt, es_ts, es_tt, f_s, f_t):
+        """Generates the ISO-compliant proof string for Two-Pressure RH."""
+        proof = "Formula: RH = [ (f_s * e_s(T_s)) / (f_t * e_s(T_t)) ] * (P_t / P_s) * 100\n"
+        proof += f"Numerator (Saturator) : f_s={f_s:.6f}, e_s={es_ts:.5f} hPa\n"
+        proof += f"Denominator (Chamber) : f_t={f_t:.6f}, e_s={es_tt:.5f} hPa\n"
+        proof += f"Pressure Ratio (Pt/Ps): {pt:.2f} / {ps:.2f}\n"
+        return proof
