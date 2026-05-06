@@ -37,4 +37,8 @@ Metron RH is strictly bound to the following international metrology standards:
 * **Physical Lab Setup:** A trace moisture analyzer outputs a Parts-Per-Million by Volume (PPMv) reading from a pressurized gas line.
 * **App Function:** Mathematically translates the molar volume fraction and line pressure into a direct partial vapor pressure. Since temperature cannot be isolated algebraically from the Sonntag formula, the application executes a pure-Python Newton-Raphson root-finding algorithm to converge on the exact Frost Point.
 
+### Mode 4: Two-Pressure (Thunder Scientific)
+* **Metrological Objective:** Validate relative humidity generated via the thermodynamic two-pressure principle.
+* **App Function:** Reads the distinct pressure and temperature domains of the Saturator and the Test Chamber. Evaluates Greenspan enhancement factors for both environments, correcting the ideal-gas pressure ratio into a highly accurate real-gas % RH output.
+
 ---
