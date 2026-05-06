@@ -40,11 +40,11 @@ def build_greenspan_1981():
     greenspan_data = {
         "reference": "Greenspan, L. (1981). Functional equations for the enhancement factors for CO2-free moist air.",
         "Water": {
-            "A_coeffs": [3.53624e-4, 2.932836e-5, 2.61474e-7, 8.57538e-6],
+            "A_coeffs": [3.53624e-4, 2.932836e-5, 2.61474e-7, 8.57538e-9],
             "B_coeffs": [-1.07588e1, 6.32529e-2, -2.535920e-4, 6.33784e-7]
         },
         "Ice": {
-            "A_coeffs": [3.64449e-4, 2.93631e-5, 4.88635e-7, 4.36543e-5],
+            "A_coeffs": [3.64449e-4, 2.93631e-5, 4.88635e-7, 4.36543e-9],
             "B_coeffs": [-1.07271e1, 7.61989e-2, -1.74771e-4, 2.46721e-6]
         }
     }
