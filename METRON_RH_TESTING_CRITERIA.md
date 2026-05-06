@@ -25,4 +25,16 @@
 * **Test Condition:** Evaluate Sonntag Water at `373.15 K`.
 * **Pass Criteria:** The result must approach `1013.25 hPa`. *(Note: Due to the mathematical curve-fitting nature of the 1990 formulation, the test allows a 1.0 hPa delta to accommodate the polynomial's empirical reality of ~1014.19 hPa at this extreme boundary).*
 
+## Enhancement Factor Validation (`test_two_pressure.py`)
+
+### Greenspan 1981 Constants
+* **Objective:** Prove the $\alpha$ and $\beta$ polynomials correctly compensate for non-ideal gas behavior when water vapor interacts with carrier gases.
+* **Test Condition:** Evaluate enhancement factor over water at 20°C and 1 standard atmosphere (1013.25 hPa).
+* **Pass Criteria:** The factor must evaluate to approximately `1.004` (strictly greater than an ideal gas state of 1.0).
+
+### High-Pressure Ratio Reality Check
+* **Objective:** Ensure the combined two-pressure generator equation functions correctly across pressure domains.
+* **Test Condition:** Saturator operates at 4x atmospheric pressure (approx 4053 hPa) while Chamber operates at 1x atmospheric pressure. Both are maintained at 20°C.
+* **Pass Criteria:** The ideal-gas ratio yields 25.0%. Due to the exponential shift of the Greenspan factors under high pressure, the "real" RH output must be slightly greater than the ideal ratio (evaluating to ~25.280%).
+
 ---
