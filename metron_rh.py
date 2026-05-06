@@ -3,9 +3,10 @@ import sys
 import os
 
 # Import the core Metrology Suite modules
-import modules.path_chilled_mirror as path_chilled_mirror
-import modules.path_psychrometer as path_psychrometer
-import modules.path_ppmv as path_ppmv
+# import modules.path_chilled_mirror as path_chilled_mirror
+# import modules.path_psychrometer as path_psychrometer
+# import modules.path_ppmv as path_ppmv
+# import modules.path_two_pressure as path_two_pressure
 
 class MetronRH:
     """
@@ -44,7 +45,7 @@ class MetronRH:
         print(r" | |\/| |/ _ \ __| '__/ _ \| '_ \  | |_) | |_| |")
         print(r" | |  | |  __/ |_| | | (_) | | | | |  _ <|  _  |")
         print(r" |_|  |_|\___|\__|_|  \___/|_| |_| |_| \_\_| |_|")
-        print(" Relative Humidity Metrology Suite v1.1.0")
+        print(" Relative Humidity Metrology Suite v1.2.0")
         print("------------------------------------------------")
 
     def run(self):
@@ -55,6 +56,7 @@ class MetronRH:
             print("1. Chilled Mirror Reference (Td/Tf & Ta -> RH)")
             print("2. Psychrometer Reference (Tw & Ta -> RH) [WIP]")
             print("3. Trace Moisture (PPMv -> RH) [WIP]")
+            print("4. Two-Pressure Generator (Thunder 2500)")
             print("0. Exit Metron RH")
             
             selection = input("\nSelect Metrology Module: ").strip()
@@ -66,13 +68,20 @@ class MetronRH:
             # Route to appropriate module
             if selection == '1':
                 print("\n[i] Routing to Chilled Mirror Module...")
+                import modules.path_chilled_mirror as path_chilled_mirror
                 path_chilled_mirror.execute(self.db, self.exe_dir)
-            elif selection == '2':
+            elif selection == '2':                
                 print("\n[i] Routing to Psychrometer Module...")
+                import modules.path_psychrometer as path_psychrometer
                 path_psychrometer.execute(self.db, self.exe_dir)
             elif selection == '3':
                 print("\n[i] Routing to Trace Moisture Module...")
+                import modules.path_ppmv as path_ppmv
                 path_ppmv.execute(self.db, self.exe_dir)
+            elif selection == '4':
+                print("\n[i] Routing to Two-Pressure Module...")
+                import modules.path_two_pressure as path_two_pressure
+                path_two_pressure.execute(self.db, self.exe_dir)
             else:
                 print("[!] Invalid selection. Please choose a valid module.\n")
 
