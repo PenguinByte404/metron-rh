@@ -35,6 +35,7 @@ Metron RH is strictly bound to the following international metrology standards:
 | **1. Chilled Mirror** | Map highly accurate Dew/Frost points to an SPRT to find actual RH. | Decoupled Chilled Mirror Hygrometer and SPRT inside an environmental chamber. | Calculates partial pressure ($e$) from the mirror, saturation pressure ($e_s$) from the SPRT, and derives exact RH. |
 | **2. Psychrometer** | Calculate RH via latent heat of evaporation. | Assmann/Aspirated Wet Bulb & Dry Bulb thermometers in an air stream. | Applies the psychrometric constant against ambient pressure to calculate vapor depression and derive pure RH. |
 | **3. Trace Moisture** | Convert volume fraction to physical Frost Point. | Moisture analyzer outputting PPMv in a pressurized gas line. | Translates PPMv to partial pressure, then uses a Newton-Raphson iterative solver to reverse-calculate the exact Frost Point. |
+| **4. Two-Pressure** | Validate RH generated via pressure ratios. | Thunder Scientific 2500 (or similar) Two-Pressure Generator. | Applies Greenspan enhancement factors to saturator/chamber conditions to correct ideal gas ratios into real thermodynamic RH. |
 
 ---
 
