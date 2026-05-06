@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 *This section holds changes that are currently in work but haven't officially been published.*
 
+## [1.2.0] - 2026-05-06
+### Added
+- Integrated the `path_two_pressure.py` module to fully support Thunder Scientific 2500 and other two-pressure humidity generators.
+- Implemented Greenspan (1981) enhancement factor logic into `math_engine.py` to correct for non-ideal gas behavior.
+- Added `test_two_pressure.py` to the TDM suite to cryptographically validate enhancement factor outputs at high pressure differentials.
+
+### Fixed
+- Corrected a critical exponent typo in the Greenspan A3 coefficient generation within `db_seeder.py` (changed from e-6 to e-9), successfully caught by the TDM validation suite.
+
 ## [1.1.0] - 2026-04-28
 ### Added
 - Integrated the complete `\tests\` directory to enable the Test-Driven Metrology (TDM) framework.
